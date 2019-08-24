@@ -1,9 +1,10 @@
 import React from 'react';
 
-const EditExpense = () => {
+const EditExpense = (props) => {
+  console.log(props);
   const template =
     <div>
-        Edit Expense component
+        Editing the expense with id of {props.match.params.id}
     </div>
         ;
   return template;
