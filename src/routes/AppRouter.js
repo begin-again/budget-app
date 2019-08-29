@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import Help from '../components/Help';
 import NotFound from '../components/NotFound';
 
-const AppRouter =
+const AppRouter = () => (
   <BrowserRouter>
     <div>
       <Route component={Header} />
@@ -20,6 +20,6 @@ const AppRouter =
       </Switch>
     </div>
   </BrowserRouter>
-;
+);
 
 export default AppRouter;

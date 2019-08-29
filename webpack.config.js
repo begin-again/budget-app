@@ -4,8 +4,8 @@ const { join } = require('path');
 
 module.exports = {
   mode: 'development',
-  // entry: './src/app.js',
-  entry: './playground/redux-expensify.js',
+  entry: './src/app.js',
+  // entry: './playground/hoc.js',
   output: {
     path: join(__dirname, 'public'),
     filename: 'bundle.js'

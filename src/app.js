@@ -1,8 +1,35 @@
 /* eslint-env commonjs, browser */
-
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import AppRouter from './routes/AppRouter';
+import configureStore from './store/configureStore';
+import { addExpense } from './actions/expenses';
+import { setTextFilter } from './actions/filters';
+import showExpenses from './selectors/expenses';
+
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-ReactDOM.render(AppRouter, document.getElementById('app'));
+const store = configureStore();
+
+store.dispatch(addExpense({ description: 'water bill', amount: 7500 }));
+store.dispatch(addExpense({ description: 'gas bill', amount: 5500 }));
+store.dispatch(setTextFilter('gas'));
+
+setTimeout(() => {
+  store.dispatch(setTextFilter('rent'));
+}, 3000);
+
+const state = store.getState();
+const visibleExpenses = showExpenses(state.expenses, state.filters);
+console.log(visibleExpenses);
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
