@@ -21,6 +21,11 @@ export const removeExpense = ({ id } = {}) => ({
   id
 });
 
+/**
+ *
+ * @param {String} id
+ * @param {Object} updates
+ */
 export const editExpense = (id, updates) => ({
   type: 'EDIT_EXPENSE',
   id,
