@@ -1,5 +1,7 @@
 public/scripts
 public/bundle.js
+public/*.map
+public/*.css
 
 # Logs
 logs
