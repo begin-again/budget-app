@@ -11,7 +11,7 @@ export default ({ description, amount, createdAt, id }) => (
       </h3>
     </Link>
     <p>
-      {numeral(amount / 100).format('$0,000')}
+      {numeral(amount / 100).format('$0,0.00')}
       <span className='seperator'>&raquo;</span>
       {moment(createdAt).format('MMM Do YYYY')}
     </p>
