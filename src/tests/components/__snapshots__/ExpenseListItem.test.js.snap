@@ -10,7 +10,7 @@ exports[`Expense List Item Component should render 1`] = `
     </h3>
   </Link>
   <p>
-    $2
+    $1.95
     <span
       className="seperator"
     >
