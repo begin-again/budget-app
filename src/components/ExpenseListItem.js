@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import numeral from 'numeral';
 
 export default ({ description, amount, createdAt, id }) => (
   <div>
@@ -8,6 +10,10 @@ export default ({ description, amount, createdAt, id }) => (
         {description}
       </h3>
     </Link>
-    <p>{amount} &raquo; {createdAt}</p>
+    <p>
+      {numeral(amount / 100).format('$0,000')}
+      <span className='seperator'>&raquo;</span>
+      {moment(createdAt).format('MMM Do YYYY')}
+    </p>
   </div>
 );
