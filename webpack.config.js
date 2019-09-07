@@ -1,15 +1,16 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
-switch (process.NODE_ENV) {
+switch (process.env.NODE_ENV) {
   case 'test':
-    require('dot-env').config({ path: '.env.test' });
+    require('dotenv').config({ path: '.env.test' });
     break;
   case 'development':
-    require('dot-env').config({ path: '.env.dev' });
+  case 'dev':
+    require('dotenv').config({ path: '.env.dev' });
     break;
   default:
     break;
