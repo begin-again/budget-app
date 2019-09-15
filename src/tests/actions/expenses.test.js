@@ -4,7 +4,8 @@ import thunk from 'redux-thunk';
 import {
   startAddExpense, addExpense,
   editExpense, removeExpense, setExpenses,
-  startSetExpenses, startRemoveExpense
+  startSetExpenses, startRemoveExpense,
+  startEditExpense
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
@@ -71,6 +72,28 @@ describe('Actions: Expenses', () => {
         updates: {
           ...data
         }
+      });
+    });
+    describe('startEditExpense()', () => {
+      it('should update expense in database', async () => {
+        const store = createMockStore({});
+        const id = expenses[2].id;
+        const description = 'hookers';
+        const updates = { description };
+
+        await store.dispatch(startEditExpense(id, updates));
+        const actions = store.getActions();
+        const snapShot = await database
+          .ref(`expenses/${id}`)
+          .once('value');
+
+        expect(actions[0]).toEqual({
+          type: 'EDIT_EXPENSE',
+          id,
+          updates
+        });
+
+        expect(snapShot.val().description).toEqual(updates.description);
       });
     });
   });
