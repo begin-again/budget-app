@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {
   startAddExpense, addExpense,
   editExpense, removeExpense, setExpenses,
-  startSetExpenses
+  startSetExpenses, startRemoveExpense
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
@@ -34,6 +34,26 @@ describe('Actions: Expenses', () => {
 
       expect(action).toEqual({
         type: 'REMOVE_EXPENSE'
+      });
+    });
+    describe('startRemoveExpense()', () => {
+      it('should remove expense from database', async () => {
+        const store = createMockStore({});
+        const id = expenses[2].id;
+
+        await store.dispatch(startRemoveExpense({ id }));
+        const actions = store.getActions();
+        const found = database
+          .ref(`expenses/${id}`)
+          .once('value')
+          .then(snapShot => snapShot.val());
+
+        expect(actions[0]).toEqual({
+          type: 'REMOVE_EXPENSE',
+          id
+        });
+
+        expect(Object.keys(found).length).toBe(0);
       });
     });
   });
@@ -119,8 +139,6 @@ describe('Actions: Expenses', () => {
         expenses
       });
     });
-  });
-  describe('startSetExpenses()', () => {
     it('should fetch expenses from database', async () => {
       const store = createMockStore({});
 
