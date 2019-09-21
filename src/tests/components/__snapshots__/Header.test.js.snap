@@ -7,7 +7,6 @@ exports[`Header Component should render 1`] = `
   </h1>
   <NavLink
     activeClassName="is-active"
-    exact={true}
     to="/dashboard"
   >
     Dashboard
@@ -18,5 +17,10 @@ exports[`Header Component should render 1`] = `
   >
     Create Expense
   </NavLink>
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
 </header>
 `;

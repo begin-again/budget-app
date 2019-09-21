@@ -5,7 +5,9 @@ exports[`Login Component should render login 1`] = `
   <h2>
     Please Login
   </h2>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     Login
   </button>
 </div>
