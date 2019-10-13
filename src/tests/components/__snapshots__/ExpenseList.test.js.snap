@@ -63,7 +63,7 @@ exports[`Expense List Component should render expense list with expenses 1`] = `
   <div
     className="list-body"
   >
-    <Component
+    <_default
       amount={195}
       createdAt={0}
       description="sweet gum"
@@ -71,7 +71,7 @@ exports[`Expense List Component should render expense list with expenses 1`] = `
       key="1"
       note=""
     />
-    <Component
+    <_default
       amount={500}
       createdAt={-345600000}
       description="candy"
@@ -79,7 +79,7 @@ exports[`Expense List Component should render expense list with expenses 1`] = `
       key="2"
       note=""
     />
-    <Component
+    <_default
       amount={123400}
       createdAt={345600000}
       description="beer"

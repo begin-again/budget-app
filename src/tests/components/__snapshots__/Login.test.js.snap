@@ -17,7 +17,7 @@ exports[`Login Component should render login 1`] = `
     </p>
     <button
       className="button"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       Login with Google
     </button>

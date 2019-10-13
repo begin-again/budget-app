@@ -20,7 +20,7 @@ exports[`Header Component should render 1`] = `
       </Link>
       <button
         className="button button--link"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         Logout
       </button>

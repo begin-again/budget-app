@@ -2,8 +2,8 @@
 
 exports[`Expense Dashboard Component should render 1`] = `
 <div>
-  <[object Object] />
-  <[object Object] />
-  <[object Object] />
+  <Connect(ExpensesSummary) />
+  <Connect(ExpenseListFilters) />
+  <Connect(ExpenseList) />
 </div>
 `;
